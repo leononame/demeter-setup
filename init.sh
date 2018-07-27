@@ -1,12 +1,18 @@
 #!/bin/bash
 
-adduser leo
-adduser leo sudo
+# first update
+apt update && apt upgrade
+
+# create user leo who can use nopasswd root
+adduser leo --disabled-password
+echo "leo ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+# generate ssh config
 mkdir /home/leo/.ssh
 cp /root/.ssh/authorized_keys /home/leo/.ssh/authorized_keys
 chown -R leo:leo /home/leo/.ssh
 
-echo "Replace the following in /etc/sudoers\n%sudo   ALL=(ALL:ALL) ALL\nwith\n%sudo  ALL=(ALL) NOPASSWD:ALL"
+# copy configuration
+cp -arf data/. /
 
-apt install docker.io
-docker pull rocket.chat
+service ssh restart
