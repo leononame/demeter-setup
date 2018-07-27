@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # first update
-apt update && apt upgrade
+apt-get update && apt-get upgrade
 
 # create user leo who can use nopasswd root
-adduser leo --disabled-password
+adduser leo --disabled-password --quiet
 echo "leo ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 # generate ssh config
