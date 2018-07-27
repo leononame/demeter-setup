@@ -1,25 +1,15 @@
-# Demeter setup
+#!/bin/bash
 
-This is my simple setup script for a new server
+apt-get install -y nginx
 
-```bash
-scp -r ./demeter-setup demroot:~
-ssh demroot
-cd demeter-setup
-./init.sh
-```
-
-# Manual installation of docker
-
-```bash
+# Docker
 echo "Installing packages for docker"
 apt-get install -y \
      apt-transport-https \
      ca-certificates \
      curl \
      gnupg2 \
-     software-properties-common \
-     sysvinit-core
+     software-properties-common
 
 echo ""
 echo "Importing docker key"
@@ -30,15 +20,13 @@ sudo add-apt-repository \
    $(lsb_release -cs) \
    stable"
 sudo apt-get update
-sudo apt-get install docker-ce
-```
+sudo apt-get install -y docker-ce
 
-Always keep this up to date
-```bash
 curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
-```
 
-# Rocket chat
+sudo apt-get install -y certbot python-certbot-nginx
+mkdir -p /var/www/letsencrypt
 
-* [Click here](https://rocket.chat/docs/installation/docker-containers/index.htmlzs)
+echo "Don't forget to get your certificates. Run:"
+echo "sudo certbot --authenticator webroot --installer nginx"

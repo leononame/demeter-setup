@@ -16,3 +16,5 @@ chown -R leo:leo /home/leo/.ssh
 cp -arf data/. /
 
 service ssh restart
+
+source packages.sh

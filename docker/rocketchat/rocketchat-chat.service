@@ -1,0 +1,13 @@
+[Unit]
+Description=Job that runs the RocketChat docker container
+After=rocketchat-mongo.service
+Requires=rocketchat-mongo.service
+
+[Service]
+WorkingDirectory=/var/www/rocket.chat
+ExecStart=/usr/local/bin/docker-compose up rocketchat
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+Alias=rocketchat-chat.service
