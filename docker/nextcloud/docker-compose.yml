@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  db:
+    image: mariadb
+    restart: always
+    volumes:
+      - /mnt/data/db:/var/lib/mysql
+
+  app:
+    image: nextcloud
+    ports:
+      - 127.0.0.1:8080:80
+    depends_on:
+      - db
+    links:
+      - db
+    volumes:
+      - /mnt/data/nextcloud:/var/www/html
+    restart: always
