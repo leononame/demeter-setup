@@ -1,0 +1,26 @@
+version: '3.6'
+services:
+  db:
+    image: mariadb
+    container_name: wordpress_db
+    volumes:
+      - /mnt/data/wordpress/db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    restart: always
+
+  app:
+    image: wordpress:latest
+    container_name: wordpress_app
+    ports:
+      - 127.0.0.1:8081:80
+    volumes:
+      - /mnt/data/wordpress/data:/var/www/html
+    environment:
+      - WORDPRESS_DB_NAME=${WORDPRESS_DB_NAME}
+      - WORDPRESS_TABLE_PREFIX=${WORDPRESS_TABLE_PREFIX}
+      - WORDPRESS_DB_HOST=${WORDPRESS_DB_HOST}
+      - WORDPRESS_DB_PASSWORD=${WORDPRESS_DB_PASSWORD}
+    links:
+      - db
+    restart: always

@@ -3,12 +3,14 @@ version: '2'
 services:
   db:
     image: mariadb
+    container_name: nextcloud_db
     restart: always
     volumes:
       - /mnt/data/db:/var/lib/mysql
 
   app:
     image: nextcloud
+    container_name: nextcloud_app
     ports:
       - 127.0.0.1:8080:80
     depends_on:

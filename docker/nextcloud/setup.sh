@@ -11,4 +11,4 @@ echo "Launching docker containers for Nextcloud. This operation may take a while
 
 sudo service nginx restart
 cd /var/www/nextcloud
-docker-compose up -d
+sudo docker-compose up -d
