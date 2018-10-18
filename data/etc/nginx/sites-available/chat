@@ -1,8 +1,11 @@
 # HTTPS Server
 server {
     listen 80;
+    listen [::]:80;
     server_name chat.lho.io;
+
     error_log /var/log/nginx/rocketchat_error.log;
+
     # lets encrypt redirect
     location /.well-known {
             alias /var/www/letsencrypt/.well-known;
@@ -15,8 +18,8 @@ server {
         proxy_set_header Connection "upgrade";
         proxy_set_header Host $http_host;
         proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forward-Proto http;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto http;
         proxy_set_header X-Nginx-Proxy true;
         proxy_redirect off;
     }

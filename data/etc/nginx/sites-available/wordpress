@@ -1,7 +1,10 @@
 # HTTPS Server
 server {
     listen 80;
+    listen [::]:80;
     server_name test.lho.io;
+    
+    error_log /var/log/nginx/wordpress_error.log;
 
     # lets encrypt redirect
     location /.well-known {
