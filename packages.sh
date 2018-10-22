@@ -9,7 +9,12 @@ apt-get install -y \
      ca-certificates \
      curl \
      gnupg2 \
-     software-properties-common
+     software-properties-common \
+     borgbackup
+
+echo ""
+echo "Generating ssh key"
+ssh-keygen -t ed25519 -N "" -f "/root/.ssh/id_ed25519"
 
 echo ""
 echo "Importing docker key"
@@ -30,3 +35,5 @@ mkdir -p /var/www/letsencrypt
 
 echo "Don't forget to get your certificates. Run:"
 echo "sudo certbot --authenticator webroot --installer nginx"
+echo "Public ssh key, don't forget to add to storage box:"
+cat /root/.ssh/id_ed25519.pub
