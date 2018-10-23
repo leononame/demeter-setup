@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 source ~/.backupwprc
 
-LOG="/var/log/borg/backup.log"
+LOG="/var/log/borg/backup-wordpress.log"
 REPOSITORY="ssh://${BACKUP_USER}@${BACKUP_USER}.your-storagebox.de:23/${BACKUP_FOLDER}"
 
 # Output to log

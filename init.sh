@@ -3,6 +3,9 @@
 # first update
 apt-get update && apt-get upgrade
 
+# borg backup log folder
+mkdir -p /var/log/borg
+
 # create user leo who can use nopasswd root
 adduser leo --disabled-password --quiet
 echo "leo ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers

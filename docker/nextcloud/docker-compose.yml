@@ -6,7 +6,7 @@ services:
     container_name: nextcloud_db
     restart: always
     volumes:
-      - /mnt/data/db:/var/lib/mysql
+      - /mnt/data/nextcloud/db:/var/lib/mysql
 
   app:
     image: nextcloud
@@ -18,5 +18,5 @@ services:
     links:
       - db
     volumes:
-      - /mnt/data/nextcloud:/var/www/html
+      - /mnt/data/nextcloud/app:/var/www/html
     restart: always

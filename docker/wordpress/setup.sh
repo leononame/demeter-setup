@@ -31,7 +31,7 @@ echo "export BORG_PASSPHRASE=$pass" >> ~/.backupwprc
 
 echo ""
 echo "Initializing borg repository"
-source ~/.backuprc
+source ~/.backupwprc
 REPOSITORY="ssh://${BACKUP_USER}@${BACKUP_USER}.your-storagebox.de:23/${BACKUP_FOLDER}"
 borg init --encryption=repokey "$REPOSITORY"
 
