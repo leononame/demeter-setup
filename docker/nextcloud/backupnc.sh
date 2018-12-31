@@ -11,8 +11,8 @@ exec 2>&1
 echo "###### BACKUP STARTED: $(date) ######"
 
 echo "Transferring data..."
-borg create -v --stats                   \
-    $REPOSITORY::`date '+%Y-%m-%d_%H:%M:%S'`        \
-    /mnt/data/nextcloud                  \
+borg create -v --stats                       \
+    $REPOSITORY::`date '+%Y-%m-%d_%H:%M:%S'` \
+    /mnt/data/nextcloud
 
 echo "###### BACKUP FINISHED: $(date) ######"

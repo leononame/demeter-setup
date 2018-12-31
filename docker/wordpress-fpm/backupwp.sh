@@ -11,16 +11,8 @@ exec 2>&1
 echo "###### BACKUP STARTED: $(date) ######"
 
 echo "Transferring data..."
-borg create -v --stats                   \
-    $REPOSITORY::`date '+%Y-%m-%d_%H:%M:%S'`        \
-    /mnt/data/wordpress                  \
-    --exclude /dev                       \
-    --exclude /proc                      \
-    --exclude /sys                       \
-    --exclude /var/run                   \
-    --exclude /run                       \
-    --exclude /lost+found                \
-    --exclude /mnt                       \
-    --exclude /var/lib/lxcfs
+borg create -v --stats                       \
+    $REPOSITORY::`date '+%Y-%m-%d_%H:%M:%S'` \
+    /mnt/data/wordpress
 
 echo "###### BACKUP FINISHED: $(date) ######"
