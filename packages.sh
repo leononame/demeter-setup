@@ -34,6 +34,6 @@ sudo apt-get install -y certbot python-certbot-nginx
 mkdir -p /var/www/letsencrypt
 
 echo "Don't forget to get your certificates. Run:"
-echo "sudo certbot --authenticator webroot --installer nginx"
+echo "sudo certbot --authenticator webroot -w /var/www/letsencrypt/ --installer nginx"
 echo "Public ssh key, don't forget to add to storage box:"
 cat /root/.ssh/id_ed25519.pub

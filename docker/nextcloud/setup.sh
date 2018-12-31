@@ -2,6 +2,7 @@
 
 mkdir -p /var/www/nextcloud
 cp docker-compose.yml /var/www/nextcloud
+cp .env /var/www/nextcloud
 
 # setup nginx
 ln -s -T /etc/nginx/sites-available/nextcloud /etc/nginx/sites-enabled/nextcloud

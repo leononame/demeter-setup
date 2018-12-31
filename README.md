@@ -9,6 +9,12 @@ cd demeter-setup
 ./init.sh
 ```
 
+# TODOs
+
+- Unify setup and backup scripts with a template (working version so far in drone)
+- Autocreate SSH dirs for Storage Boxes and copy ssh key over there
+- Create Nginx configs dynamicalley (prompt for domain)
+
 # Manual installation of docker
 
 ```bash
@@ -18,9 +24,8 @@ apt-get install -y \
      ca-certificates \
      curl \
      gnupg2 \
-     software-properties-common \
-     sysvinit-core
-
+     software-properties-common 
+     
 echo ""
 echo "Importing docker key"
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
@@ -35,10 +40,6 @@ sudo apt-get install docker-ce
 
 Always keep this up to date
 ```bash
-curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+curl -L https://github.com/docker/compose/releases/download/1.23.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 ```
-
-# Rocket chat
-
-* [Click here](https://rocket.chat/docs/installation/docker-containers/index.htmlzs)

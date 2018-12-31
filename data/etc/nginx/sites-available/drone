@@ -2,7 +2,7 @@
 server {
     listen 80;
     listen [::]:80;
-    server_name reiseblog.lho.io;
+    server_name drone.lho.io;
     
     error_log /var/log/nginx/wordpress_error.log;
 
@@ -12,7 +12,7 @@ server {
     }
 
     location / {
-        proxy_pass http://127.0.0.1:8081/;
+        proxy_pass http://127.0.0.1:8082/;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";

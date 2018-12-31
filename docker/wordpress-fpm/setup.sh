@@ -3,6 +3,9 @@
 mkdir -p /var/www/wordpress
 cp docker-compose.yml /var/www/wordpress
 cp .env /var/www/wordpress
+cp backupwp.sh /usr/local/bin
+mkdir -p /mnt/data/wordpress/nginx/conf.d
+cp wordpress.conf /mnt/data/wordpress/nginx/conf.d/
 
 # setup nginx
 ln -s -T /etc/nginx/sites-available/wordpress /etc/nginx/sites-enabled/wordpress
@@ -36,6 +39,5 @@ source ~/.backupwprc
 REPOSITORY="ssh://${BACKUP_USER}@${BACKUP_USER}.your-storagebox.de:23/${BACKUP_FOLDER}"
 borg init --encryption=repokey "$REPOSITORY"
 
-cp backupwp.sh /usr/local/bin
 echo "Add the following line to crontab -e"
 echo "0 0 * * * /usr/local/bin/backupwp.sh > /dev/null 2>&1"

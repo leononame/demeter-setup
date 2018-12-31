@@ -1,5 +1,18 @@
 version: '3.6'
 services:
+  nginx:
+    image: nginx:latest
+    container_name: wordpress_proxy
+    ports:
+      - '8081:80'
+    volumes:
+      - /mnt/data/wordpress/nginx/conf.d:/etc/nginx/conf.d
+      - /mnt/data/wordpress/nginx/logs:/var/log/nginx
+      - /mnt/data/wordpress/data:/var/www/html
+    links:
+      - app
+    restart: always
+
   db:
     image: mariadb
     container_name: wordpress_db
@@ -10,10 +23,8 @@ services:
     restart: always
 
   app:
-    image: wordpress:latest
+    image: wordpress:php7.2-fpm
     container_name: wordpress_app
-    ports:
-      - 127.0.0.1:8081:80
     volumes:
       - /mnt/data/wordpress/data:/var/www/html
     environment:
