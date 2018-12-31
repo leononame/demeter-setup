@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source ~/.backupwprc
+source ~/.backupdronerc
 
 LOG="/var/log/borg/backup-drone.log"
 REPOSITORY="ssh://${BACKUP_USER}@${BACKUP_USER}.your-storagebox.de:23/${BACKUP_FOLDER}"

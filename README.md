@@ -14,6 +14,7 @@ cd demeter-setup
 - Unify setup and backup scripts with a template (working version so far in drone)
 - Autocreate SSH dirs for Storage Boxes and copy ssh key over there
 - Create Nginx configs dynamicalley (prompt for domain)
+- Autostart of Certbot after setup.sh
 
 # Manual installation of docker
 

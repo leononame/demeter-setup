@@ -28,7 +28,7 @@ read folder
 echo -n "Borg Passphrase: "
 read pass
 echo "export BACKUP_USER=$user" >> ~/.backupdronerc
-echo "export BACKUP_FOLDER=./$folder" >> ~/.backudroneprc
+echo "export BACKUP_FOLDER=./$folder" >> ~/.backupdronerc
 echo "export BORG_PASSPHRASE=$pass" >> ~/.backupdronerc
 
 echo ""
