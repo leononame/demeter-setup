@@ -4,7 +4,7 @@ server {
     listen [::]:80;
     server_name drone.lho.io;
     
-    error_log /var/log/nginx/wordpress_error.log;
+    error_log /var/log/nginx/drone_error.log;
 
     # lets encrypt redirect
     location /.well-known {

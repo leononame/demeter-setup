@@ -20,3 +20,14 @@ services:
     volumes:
       - /mnt/data/nextcloud/app:/var/www/html
     restart: always
+
+  web:
+    image: phpmyadmin/phpmyadmin
+    container_name: nextcloud_admin
+    ports:
+      - 127.0.0.1:8083:80
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db
+    links:
+      - db

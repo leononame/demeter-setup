@@ -15,6 +15,8 @@ cd demeter-setup
 - Autocreate SSH dirs for Storage Boxes and copy ssh key over there
 - Create Nginx configs dynamicalley (prompt for domain)
 - Autostart of Certbot after setup.sh
+- Add option to hook up to backup dir
+- General layout that's always valid for mountpoints, use symlinks for actual mountpoints
 
 # Manual installation of docker
 
