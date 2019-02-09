@@ -1,45 +1,8 @@
 # Demeter setup
 
-This is my simple setup script for a new server
-
-```bash
-scp -r ./demeter-setup demroot:~
-ssh demroot
-cd demeter-setup
-./init.sh
-```
-
-# TODOs
-
-- Unify setup and backup scripts with a template (working version so far in drone)
-- Autocreate SSH dirs for Storage Boxes and copy ssh key over there
-- Create Nginx configs dynamicalley (prompt for domain)
-- Autostart of Certbot after setup.sh
-- Add option to hook up to backup dir
-- General layout that's always valid for mountpoints, use symlinks for actual mountpoints
+This repository contains a simple setup script for a fresh Debian server. First, upload the repository to the server running `upload.sh`, then ssh into the server and execute `./init.sh` inside `~/setup`.
 
 # Manual installation of docker
-
-```bash
-echo "Installing packages for docker"
-apt-get install -y \
-     apt-transport-https \
-     ca-certificates \
-     curl \
-     gnupg2 \
-     software-properties-common 
-     
-echo ""
-echo "Importing docker key"
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/debian \
-   $(lsb_release -cs) \
-   stable"
-sudo apt-get update
-sudo apt-get install docker-ce
-```
 
 Always keep this up to date
 ```bash

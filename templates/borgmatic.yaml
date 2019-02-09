@@ -1,0 +1,30 @@
+location:
+    source_directories:
+        - {{ SOURCE_DIR }}
+    repositories:
+        - ssh://{{ BACKUP_USER }}@{{ BACKUP_USER }}.your-storagebox.de:23/./{{ TARGET_DIR }}
+
+storage:
+    encryption_passphrase: "{{ BACKUP_PASSPHRASE }}" 
+    archive_name_format: '{hostname}-{{ APP_NAME }}-{now:%Y-%m-%d_%H:%M:%S}'
+
+retention:
+    keep_daily: 7
+    keep_weekly: 4
+    keep_monthly: 6
+    keep_yearly: 1
+    prefix: '{hostname}-{{ APP_NAME }}-'
+
+consistency:
+    checks:
+        - repository
+        - archives
+    prefix: '{hostname}-{{ APP_NAME }}-'
+
+hooks:
+    before_backup:
+        - echo "Starting a backup job."
+    after_backup:
+        - echo "Backup created."
+    on_error:
+        - echo "Error while creating a backup."

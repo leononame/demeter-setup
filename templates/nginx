@@ -1,27 +1,23 @@
-# HTTPS Server
 server {
     listen 80;
     listen [::]:80;
-    server_name chat.lho.io;
+    server_name {{ DOMAIN_NAME }};
 
-    error_log /var/log/nginx/rocketchat_error.log;
+    access_log /var/log/nginx/{{ APP_NAME }}_access.log;
+    error_log /var/log/nginx/{{ APP_NAME }}_error.log;
 
-    # lets encrypt redirect
-    location /.well-known {
-            alias /var/www/letsencrypt/.well-known;
-    }
+    {{ NGINX_OPTIONS }}
 
     location / {
-        proxy_pass http://chat.lho.io:3000/;
+        proxy_pass http://127.0.0.1:{{ PORT_NUM }}/;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
         proxy_set_header Host $http_host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto http;
+        proxy_set_header X-Forwarded-Proto https;
         proxy_set_header X-Nginx-Proxy true;
         proxy_redirect off;
     }
-    # lets encrypt will add settings here for ssl!
 }

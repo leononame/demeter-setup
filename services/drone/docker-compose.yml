@@ -5,7 +5,7 @@ services:
     container_name: drone_app
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /mnt/data/drone:/data
+      - "{{ DATA_DIR }}:/data"
     environment:
       - DRONE_GIT_ALWAYS_AUTH=true
       - DRONE_GITLAB_SERVER=https://gitlab.com
@@ -17,4 +17,4 @@ services:
       - DRONE_GITLAB_CLIENT_SECRET=${DRONE_GITLAB_CLIENT_SECRET}
     restart: always
     ports:
-      - 127.0.0.1:8082:80
+      - 127.0.0.1:{{ PORT_NUM }}:80
