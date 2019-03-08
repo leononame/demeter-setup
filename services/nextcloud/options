@@ -3,7 +3,7 @@ export NGINX_OPTIONS="client_max_body_size        10G;
     client_body_buffer_size     400M;
 
     location ~ ^/.well-known/(cal|card)dav {
-        return 301 https://$host/remote.php/dav;
+        return 301 https://\$host/remote.php/dav;
     }
 
     location /phpmyadmin {

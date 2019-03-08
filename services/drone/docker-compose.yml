@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   app:
-    image: drone/drone:1.0.0-rc.5
+    image: drone/drone:1.0.0-rc.6
     container_name: drone_app
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
