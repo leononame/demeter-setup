@@ -19,3 +19,6 @@ if [! -f "${DATA_DIR}/overrides/dovecot.conf" ]; then
     mkdir -p "${DATA_DIR}/overrides/"
     cp config/dovecot.conf "${DATA_DIR}/overrides/"
 fi
+
+deskey=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9-_#&!*%?' | fold -w 24 | head -n 1)
+echo "\nSECRET_KEY=\"$deskey\""" >> /var/www/${APP_NAME}/mailu.env

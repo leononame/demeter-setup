@@ -9,3 +9,8 @@ Always keep this up to date
 curl -L https://github.com/docker/compose/releases/download/1.23.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 ```
+
+# TODO
+
+- Store certificates in /mnt/data or wherever the data folder is instead of /etc/mailucerts
+- Only use it as a post hook for mailu

@@ -37,7 +37,7 @@ services:
       - "${IPV4_ADDRESS}:993:993"
       - "${IPV6_ADDRESS}:993:993"
     volumes:
-      - "/etc/letsencrypt/live/{{ DOMAIN_NAME }}:/certs"
+      - "/etc/mailucerts/{{ DOMAIN_NAME }}:/certs"
       - "{{ DATA_DIR }}/overrides/nginx:/overrides"
 
   resolver:

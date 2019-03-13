@@ -29,3 +29,5 @@ $config['managesieve_conn_options'] = $ssl_no_check;
 // Sieve script management
 $config['managesieve_host'] = $imap;
 $config['managesieve_usetls'] = false;
+
+$config['des_key'] = getenv('SECRET_KEY');
