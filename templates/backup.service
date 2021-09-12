@@ -1,6 +1,0 @@
-[Unit]
-Description=borgmatic backup for {{ APP_NAME }}
-
-[Service]
-Type=oneshot
-ExecStart=/usr/local/bin/borgmatic -c /etc/borgmatic.d/{{ APP_NAME }}.yaml -v1

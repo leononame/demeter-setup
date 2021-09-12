@@ -3,7 +3,9 @@
 echo -n "IP Address of server: "
 read IP
 # Remove IP from known hosts as this is a new server
-sed -i "" "/$IP/d" ~/.ssh/known_hosts
+sed -i "/$IP/d" ~/.ssh/known_hosts
+# Set current ssh key
+ssh-copy-id -i ~/.ssh/leo root@${IP}
 # Create archive
 tar czf setup.tar.gz *
 # Copy data

@@ -3,8 +3,7 @@ apt-transport-https
 ca-certificates
 curl
 gnupg2
-borgbackup
-docker-ce
 certbot
 python3-certbot-nginx
 python3-pip
+vim
